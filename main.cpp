@@ -1,14 +1,31 @@
 #include<cstdio>
 #include<cstdlib>
+#include<DirectXTex.h>
+#include"TextureConverter.h"
+
+//コマンドライン引数
+enum Argument {
+	kApplicationPath,//アプリケーションのパス
+	kFilePath,		//渡されたファイルのパス
+	NumArgment
+};
 
 int main(int argc,char* argv[]) {
-	//argcの数だけ繰り返す
-	for (size_t i = 0; i < argc; i++)
-	{
-		//文字列argvのi版を表示
-		printf(argv[i]);
-		printf("\n");
-	}
+	assert(argc >= NumArgment);
+
+	//COMライブラリの初期化
+	HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+	assert(SUCCEEDED(hr));
+
+	//テスクチャコンバーター
+	TextureConverter converter;
+
+	//テクスチャ変換
+	converter.ConverTextureWICToDDS(argv[kFilePath]);
+
+	//COMライブラリの終了
+	CoUninitialize();
+
 	system("pause");
 	return 0;
 }
