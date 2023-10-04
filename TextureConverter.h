@@ -23,5 +23,11 @@ private:
 	/// <returns>ワイド文字列</returns>
 	static std::wstring ConvertMultiByteStringToWideString(const std::string& mString);
 
+private:
+	//画像の情報
+	DirectX::TexMetadata metadata;
+	//画像イメージのコンテナ
+	DirectX::ScratchImage scratchImage;
+
 };
 
