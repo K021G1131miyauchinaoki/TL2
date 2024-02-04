@@ -10,7 +10,14 @@ public:
 	/// テスクチャをWICからDDSに変換
 	/// </summary>
 	/// <param name="filePath">ファイルパス</param>
-	void ConverTextureWICToDDS(const std::string&filePath);
+	/// <param name="numOptions">オプションの数</param>
+	/// <param name="options">オプション配列</param>
+	void ConverTextureWICToDDS(const std::string&filePath,int numOptions=0,char* options[]=nullptr);
+
+	/// <summary>
+	/// 使用方法の表示
+	/// </summary>
+	static void OutputUsage();
 private:
 	/// <summary>
 	/// テスクチャファイル読み込み
@@ -34,7 +41,9 @@ private:
 	/// <summary>
 	/// DDSテクスチャとしてファイル書き出し
 	/// </summary>
-	void SaveDDSTextureToFile();
+	/// <param name="numOptions">オプションの数</param>
+	/// <param name="options">オプション配列</param>
+	void SaveDDSTextureToFile(int numOptions , char* options);
 private:
 	//画像の情報
 	DirectX::TexMetadata metadata;
