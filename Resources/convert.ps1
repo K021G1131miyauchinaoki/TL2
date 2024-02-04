@@ -1,4 +1,4 @@
-$files=Get-Item *.jpg
+$files=Get-Item *.jpg,*.png
 # ユーザーからの入力を受け取る
 $mipLevel="0"
 $mipLevel = Read-Host "Please enter the mip level :"
